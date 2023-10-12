@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OAuth2 Callback</title>
+</head>
+<body>
+    <h1>Autorização concluída</h1>
+    <p>Por favor, aguarde. Você será redirecionado para o aplicativo em breve.</p>
+
+    <script>
+        // Captura o código de autorização da URL.
+        const urlParams = new URLSearchParams(window.location.search);
+        const authorizationCode = urlParams.get('code');
+
+        // Redireciona de volta para o aplicativo com o código de autorização.
+        if (authorizationCode) {
+            // Substitua a URL abaixo pela URL de redirecionamento do seu aplicativo Flutter.
+            const redirectUrl = 'newsdroid://oauth-callback?code=' + authorizationCode;
+
+            // Redireciona de volta para o aplicativo.
+            window.location.href = redirectUrl;
+        } else {
+            alert('Código de autorização não encontrado.');
+        }
+    </script>
+</body>
+</html>
