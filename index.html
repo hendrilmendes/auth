@@ -2,10 +2,23 @@
 <html>
 <head>
     <title>OAuth2 Callback</title>
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <style>
+        .card {
+            background-color: #fff; /* Cor de fundo do card */
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2); /* Sombra do card */
+            border-radius: 4px; /* Borda arredondada */
+            padding: 16px; /* Espaçamento interno */
+            max-width: 400px; /* Largura máxima do card */
+            margin: 0 auto; /* Centralizar o card na tela */
+        }
+    </style>
 </head>
-<body>
-    <h1>Autorização concluída</h1>
-    <p>Por favor, aguarde. Você será redirecionado para o aplicativo em breve.</p>
+<body class="mdc-typography">
+    <div class="card">
+        <h1 class="mdc-typography--headline3">Autorização concluída</h1>
+        <p class="mdc-typography--body1">Por favor, aguarde. Você será redirecionado para o aplicativo em breve.</p>
+    </div>
 
     <script>
         // Captura o código de autorização da URL.
