@@ -2,25 +2,54 @@
 <html>
 <head>
     <title>OAuth2 Callback</title>
+    <meta charset='UTF-8' />
+    <meta
+        content='user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi'
+        name='viewport' />
+    <meta content='IE=edge' http-equiv='X-UA-Compatible' />
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <style>
+        body {
+            background-color: #f2f2f2;
+            /* Cor de fundo padrão */
+            color: #333;
+            /* Cor do texto padrão */
+        }
+
         .card {
-            background-color: #fff; /* Cor de fundo do card */
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2); /* Sombra do card */
-            border-radius: 4px; /* Borda arredondada */
-            padding: 16px; /* Espaçamento interno */
-            max-width: 400px; /* Largura máxima do card */
-            margin: 0 auto; /* Centralizar o card na tela */
+            box-shadow: 2px 2px 2px rgba(0.2, 0.2, 0.2, 0.2);
+            /* Sombra do card */
+            border-radius: 20px;
+            /* Borda arredondada */
+            padding: 16px;
+            /* Espaçamento interno */
+            max-width: 400px;
+            /* Largura máxima do card */
+            margin: 0 auto;
+            /* Centralizar o card na tela */
         }
     </style>
 </head>
+
 <body class="mdc-typography">
     <div class="card">
-        <h1 class="mdc-typography--headline3">Autorização concluída</h1>
-        <p class="mdc-typography--body1">Por favor, aguarde. Você será redirecionado para o aplicativo em breve.</p>
+        <h1 class="mdc-typography--headline3">Autorização Concluída</h1>
+        <p class="mdc-typography--body1">Por favor, aguarde. Você será redirecionado para o News-Droid em breve.</p>
     </div>
 
     <script>
+
+        // Função para verificar o modo escuro
+        function isDarkMode() {
+            return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+
+        // Aplica o modo escuro se estiver ativo
+        if (isDarkMode()) {
+            document.body.style.backgroundColor = '#333'; // Cor de fundo escura
+            document.body.style.color = '#fff'; // Cor do texto clara
+        }
+
         // Captura o código de autorização da URL.
         const urlParams = new URLSearchParams(window.location.search);
         const authorizationCode = urlParams.get('code');
